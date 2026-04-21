@@ -8,7 +8,7 @@ We provide the experimental scripts:
 
 - Experiments in the main body of the paper:
   - **`ex`**: **Real-world experiment** in our main text.
-  - **`syn`**: **Synthetic** experiment in our main text.
+  - **`syn`**: **Synthetic experiment** in our main text.
 
 - Experiments in Appendix (Additional Experimental Results):
   - **counter: `negative_result.R`**: Counter example in our 🔵 **Appendix S.4**.
