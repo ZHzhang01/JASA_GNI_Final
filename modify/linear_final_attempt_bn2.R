@@ -1,3 +1,5 @@
+# Scripts in this family are nearly identical except for bn, so users can modify bn here instead of maintaining separate copies.
+
 library(igraph)
 library(tidyverse)
 library(stringdist)
