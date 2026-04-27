@@ -460,3 +460,43 @@ save(
 )
 
 message("Saved: ", normalizePath(out_file, mustWork = FALSE))
+
+
+
+
+
+
+
+
+
+
+
+# If you want to double-check the pre-processing, you could try:
+# new_env <- new.env()
+# ref_env <- new.env()
+
+# load("preprocessed_0422analysis_v4_strict.RData", envir = new_env)
+# load("703.RData", envir = ref_env)
+
+# all.equal(
+#   new_env$X0422analysis[, 1:59],
+#   ref_env$X0422analysis[, 1:59],
+#   tolerance = 0,
+#   check.attributes = FALSE
+# )
+
+# all.equal(
+#   new_env$X0422twoside,
+#   ref_env$X0422twoside,
+#   tolerance = 0,
+#   check.attributes = FALSE
+# )
+
+
+
+
+
+
+
+
+                 
