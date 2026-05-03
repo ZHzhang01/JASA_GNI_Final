@@ -28,16 +28,7 @@ We provide the experimental scripts:
 Please run the following commands to execute the experiments. Please make sure to change the data storage path to the one you need.
 
 
-```bash
-# Example:
 
-# Run the counter example
-Rscript negative_result.R
-
-# Run the synthetic experiments
-Rscript linear_final_attempt.R
-Rscript nonlinear_final_attempt.R
-```
 
 
 
