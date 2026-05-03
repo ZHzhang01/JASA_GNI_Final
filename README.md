@@ -4,7 +4,7 @@
 **igraph**, **tidyverse**, **stringdist**, **Matrix**, **quadprog**, **ggplot2**, **gridExtra**, **latex2exp**,
 and **haven**. The preprocessing script also uses **utils::unzip**, which is included with base R.
 
-🔵 **Note.** All scripts should be executed from the command line using `Rscript`.
+🔵 **Note.** All scripts should be executed from the command line using `Rscript` as below.
 
 ## Overview
 
