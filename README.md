@@ -32,26 +32,26 @@ Please run the following commands to execute the experiments. Please make sure t
 
 
 
-- Main-text results:
 
-  - Table 1: Run the following scripts to reproduce the main simulation results.
+  - (Main-text results) Table 1: Run the following scripts to reproduce the main simulation results.
 ```bash
 Rscript syn/linear_final_attempt.R
 Rscript syn/nonlinear_final_attempt.R
 ```
 
-  - Table 2: Run the following scripts to reproduce the real-data analysis based on Cai, de Janvry, and Sadoulet (2015).
+
+  - (Main-text results) Table 2: Run the following scripts to reproduce the real-data analysis based on Cai, de Janvry, and Sadoulet (2015).
 ```bash
 Rscript ex/bn_3_ex_direct_A.R
 Rscript ex/bn_3_ex_spillover_A.R
 ```
 
-  - Figure 1: Run the following script to reproduce the confidence-interval plot in the main text.
+  - (Main-text results) Figure 1: Run the following script to reproduce the confidence-interval plot in the main text.
 ```bash
 Rscript figure_1_main_text.R
 ```
 
-- Supplementary results:
+
 
   - Appendix S.4 / Table S.1: Run the following script to reproduce the counterexample.
 ```bash
