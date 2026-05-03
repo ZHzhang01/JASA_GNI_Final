@@ -1,10 +1,10 @@
 **Here is the code for the work ``General auxiliary variables with approximate neighbourhood interference''.** R version: 4.1.2.
 
-External R packages used by the analysis and preprocessing scripts:
+🔵 External R packages used by the analysis and preprocessing scripts:
 **igraph**, **tidyverse**, **stringdist**, **Matrix**, **quadprog**, **ggplot2**, **gridExtra**, **latex2exp**,
 and **haven**. The preprocessing script also uses **utils::unzip**, which is included with base R.
 
-
+🔵 **Note.** All scripts should be executed from the command line using `Rscript`.
 
 ## Overview
 
