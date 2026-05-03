@@ -40,6 +40,59 @@ Rscript nonlinear_final_attempt.R
 ```
 
 
+
+- Main-text results:
+
+  - Table 1: Run the following scripts to reproduce the main simulation results.
+```bash
+Rscript syn/linear_final_attempt.R
+Rscript syn/nonlinear_final_attempt.R
+```
+
+  - Table 2: Run the following scripts to reproduce the real-data analysis based on Cai, de Janvry, and Sadoulet (2015).
+```bash
+Rscript ex/bn_3_ex_direct_A.R
+Rscript ex/bn_3_ex_spillover_A.R
+```
+
+  - Figure 1: Run the following script to reproduce the confidence-interval plot in the main text.
+```bash
+Rscript figure_1_main_text.R
+```
+
+- Supplementary results:
+
+  - Appendix S.4 / Table S.1: Run the following script to reproduce the counterexample.
+```bash
+Rscript counter/negative_result.R
+```
+
+  - Appendix S.5.2 / Table S.2: Run the following scripts to reproduce the bandwidth-sensitivity checks. The main synthetic script uses `bn = 3`; the scripts below reproduce the additional bandwidth choices.
+
+```bash
+Rscript modify/linear_final_attempt_bn1.R
+Rscript modify/linear_final_attempt_bn2.R
+Rscript modify/linear_final_attempt_bn4.R
+```
+
+  - Appendix S.5.3 / Tables S.3--S.5: Run the following scripts to reproduce the network-misspecification experiments.
+```bash
+Rscript modify/syn_modify_misspecification_1.R
+Rscript modify/syn_modify_misspecification_2.R
+Rscript modify/syn_modify_misspecification_4.R
+Rscript modify/syn_mis_nonlinear_1.R
+Rscript modify/syn_mis_nonlinear_2.R
+Rscript modify/syn_mis_nonlinear_4.R
+```
+
+  - Optional preprocessing:
+
+To regenerate the analysis-ready real-data file from the public openICPSR archive, run the preprocessing script below.
+
+```bash
+Rscript ex/preprocessing_code/preprocess_113593_to_analysis.R
+```
+
 ## License
 
 This code is for academic and research purposes.
