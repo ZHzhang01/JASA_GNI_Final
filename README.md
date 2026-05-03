@@ -25,7 +25,7 @@ We provide the experimental scripts:
 
 ## Running the Experiments
 
-Please run the following commands to execute the experiments. Please make sure to change the data storage path to the one you need.
+Please run the **command lines** below to execute the experiments. Please make sure to change the data storage path to the one you need.
 
 
 
