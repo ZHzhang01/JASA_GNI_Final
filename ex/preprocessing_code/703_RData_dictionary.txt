@@ -1,0 +1,120 @@
+Data dictionary for 703.RData used by bn_3_ex_direct_A.R and bn_3_ex_spillover_A.R
+
+============================================================
+X0422analysis: household-level analysis table
+============================================================
+
+X0422analysis: Main household-level analysis table in 703.RData. Each row is a household/farmer. The two scripts use it to construct treatment, outcome, covariates, cluster controls, and network-exposure covariates.
+
+id: Household ID; unique household/farmer identifier.
+address: Natural village identifier.
+region: Region identifier.
+village: Administrative village identifier.
+takeup_survey: Insurance take-up outcome; 1 means the household purchased the rice/weather insurance, 0 means it did not.
+age: Age of the household head.
+agpop: Household size.
+educ: Education level of the household head; 0 = illiterate, 1 = primary school, 2 = secondary/middle school, 3 = high school, 4 = college.
+rice_inc: Share of rice income in total household income.
+ricearea_2010: Rice production area in 2010, measured in mu.
+disaster_loss: Yield loss caused by natural disasters in the previous year.
+insurance_repay: Whether the household had received repayment/payout from insurance before; 1 = yes, 0 = no.
+insurance_buy: Household belief about whether more than half of the village would buy insurance; used in the spillover script as ex_new but not central to the final estimator.
+disaster_prob: Subjective perceived probability of a future disaster.
+general_trust: General trust in government.
+male: Gender of household head; 1 = male, 0 = female.
+default: First-round default option; 1 = default buy, 0 = default not buy.
+delay: Session round indicator; 1 = second-round session, 0 = first-round session.
+intensive: Intensive financial education assignment; 1 = intensive session, 0 = simple session.
+info_takeup_rate: Indicator for whether the household was told the first-round overall take-up rate.
+info_takeup_list: Indicator for whether the household was shown the first-round detailed purchase-decision list.
+info_none: Indicator for receiving no additional first-round take-up information.
+understanding: Post-session insurance knowledge score.
+day: Day of experiment.
+risk_averse: Risk-aversion measure.
+literacy: Literacy indicator; 1 = literate, 0 = illiterate.
+educ_good: Indicator for relatively higher education.
+reveal: Whether the household revealed its purchase decision to friends.
+disaster_yes: Whether the household experienced a natural disaster last year; 1 = yes, 0 = no.
+network_obs: Number of observed valid friends/network links.
+network_rate_preintensive: Fraction of friends assigned to first-round intensive financial education. This is the paper's main general network-exposure measure.
+network_rate_presession: Fraction of friends who participated in a pre/first-round session. In the scripts, this is used as one of the extra network-exposure covariates in new_G.
+network_rate_pretakeup: First-round friends' insurance take-up rate; used to measure exposure to friends' purchase decisions.
+network_rate_presimple: Fraction of friends assigned to first-round simple session.
+knowledge_network: Average insurance knowledge among first-round financially educated friends.
+friend1: Household ID of the first listed friend.
+friend2: Household ID of the second listed friend.
+friend3: Household ID of the third listed friend.
+friend4: Household ID of the fourth listed friend.
+friend5: Household ID of the fifth listed friend.
+network_onlyone: Indicator that exactly one friend received first-round intensive financial education.
+network_onlytwo: Indicator that exactly two friends received first-round intensive financial education.
+network_twomore: Indicator that more than two friends received first-round intensive financial education.
+network_yes: Indicator that at least one friend received first-round intensive financial education.
+network_twoside: Strong-tie network exposure; exposure through mutually nominated/bilateral friends.
+secondnet_obs: Number of observed second-order network links.
+network_second: Weak-tie / second-order exposure; exposure through friends' friends.
+mean_allnetindegree: Average in-degree among all listed friends.
+mean_1steduc_indegree: Average in-degree among friends who received first-round intensive financial education.
+mean_allnetpath_out_ind: Average out-path length among all listed friends.
+mean_1steduc_path_out_ind: Average out-path length among friends who received first-round intensive financial education.
+mean_allnetpath_in_ind: Average in-path length among all listed friends.
+mean_1steduc_path_in_ind: Average in-path length among friends who received first-round intensive financial education.
+mean_allneteigenvector: Average eigenvector centrality among all listed friends.
+mean_1steduc_eigenvector: Average eigenvector centrality among friends who received first-round intensive financial education.
+eigenvector: Household's eigenvector centrality in the village network.
+indegree: Number of other households that named this household as a friend.
+path_in_ind: Average shortest path length from other households to this household.
+path_out_ind: Average shortest path length from this household to other households.
+tempt_Z columns: Analysis-generated temporary dummy/randomization/cluster columns; not raw survey variables. They do not need substantive interpretation in the real-experiment dictionary.
+cluster: Analysis-generated cluster/group identifier.
+vi_cluster: Village/network cluster identifier used by the scripts to construct cluster controls or village-level rates.
+onehot_cluster: One-hot encoded cluster matrix used by the scripts as high-dimensional cluster controls.
+
+============================================================
+X0422twoside: network edge table
+============================================================
+
+X0422twoside: Network edge table in 703.RData. Each row records a relationship from one household to another household.
+
+id: Source household ID; in the scripts this becomes UserID1.
+network_id: Friend/neighbor household ID; in the scripts this becomes UserID2.
+twoside: Bilateral-tie indicator. twoside = 1 means id and network_id mutually nominated each other as friends; twoside = 0 means the tie is one-sided.
+
+X0422twoside_1: Derived bilateral-tie subset of X0422twoside, keeping rows with twoside = 1. 
+
+============================================================
+Variables actually used by bn_3_ex_direct_A.R and bn_3_ex_spillover_A.R
+============================================================
+
+Outcome:
+- Y = filtered_data$ex_buy = X0422analysis$takeup_survey after filtering.
+
+Direct-effect treatment script:
+- T_vec = filtered_data$ex_intensive = X0422analysis$intensive among filtered second-round households.
+
+Spillover-effect treatment script:
+- T_vec is constructed as an indicator that at least one eligible first-round neighbor received intensive financial education.
+- Eligibility uses X0422analysis$delay == 0 for the neighbor.
+- Neighbor treatment uses X0422analysis$intensive == 1 for the neighbor.
+
+Household covariates used to build X:
+- agpop
+- ricearea_2010
+- rice_inc
+- educ
+- insurance_repay
+- understanding
+
+Cluster controls:
+- vi_cluster
+
+Network-exposure covariates added to new_G:
+- network_rate_preintensive
+- network_rate_presession
+
+Network structure used to build adjacency/dependence matrices:
+- X0422twoside$id
+- X0422twoside$network_id
+
+
+
