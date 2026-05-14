@@ -1,4 +1,4 @@
-# Scripts in this family are nearly identical except for bn, so users can modify bn here instead of maintaining separate copies.
+# The scripts ``modify/linear\_final\_attempt\_bn\{1,2,4\}.R'' are nearly identical except for the specification of $b_n$, so you can modify the assignment of $b_n$ in this script to generate the same results as the two other scripts, rather than executing the other scripts.
 
 library(igraph)
 library(tidyverse)
